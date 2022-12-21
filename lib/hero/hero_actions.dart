@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart';
 
-import '../models/hero.dart';
+import './hero_model.dart';
 
 class HeroActions {
   Future<List<WavenHero>> getHeroes() async {

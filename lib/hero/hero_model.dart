@@ -87,7 +87,7 @@ class WavenHero {
     }
   }
 
-  static String getStringOfRole(ClassHero classHero) {
+  static String getStringOfClass(ClassHero? classHero) {
     switch (classHero) {
       case ClassHero.iop:
         return "Iop";

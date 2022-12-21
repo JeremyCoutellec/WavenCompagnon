@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:filter_list/filter_list.dart';
 
-import '../models/hero.dart';
+import '../hero_model.dart';
 import 'hero_show.dart';
 
 class HeroCardList extends StatefulWidget {
   final List<WavenHero> heros;
-  WavenHero? showViewHero;
 
-  HeroCardList({super.key, required this.heros, this.showViewHero});
+  HeroCardList({super.key, required this.heros});
 
   @override
   State<HeroCardList> createState() => _HeroCardListState();
 }
 
 class _HeroCardListState extends State<HeroCardList> {
-  List<Object> classHeroSelected = [];
+  List<ClassHero> classHeroesSelected = [];
   List<WavenHero> filteredHeros = [];
 
   @override
@@ -23,7 +22,7 @@ class _HeroCardListState extends State<HeroCardList> {
     Orientation orientation = MediaQuery.of(context).orientation;
 
     void openFilterDialog() async {
-      await FilterListDialog.display<Object>(
+      await FilterListDialog.display<ClassHero>(
         context,
         hideSearchField: true,
         hideCloseIcon: true,
@@ -33,10 +32,10 @@ class _HeroCardListState extends State<HeroCardList> {
         resetButtonText: 'Aucun',
         allButtonText: 'Tous',
         listData: ClassHero.values,
-        selectedListData: classHeroSelected,
+        selectedListData: classHeroesSelected,
         controlButtons: [],
         choiceChipBuilder: (context, item, isSelected) {
-          String? label;
+          String? label = WavenHero.getStringOfClass(item);
           Color color = Colors.grey[200]!;
           Color colorText = Colors.black;
 
@@ -50,17 +49,17 @@ class _HeroCardListState extends State<HeroCardList> {
               child: Chip(
                 backgroundColor: color,
                 label: Text(
-                  label ?? '',
+                  label,
                   style: TextStyle(color: colorText),
                 ),
               ));
         },
         choiceChipLabel: (object) {
-          return object.toString();
+          return WavenHero.getStringOfClass(object);
         },
         validateSelectedItem: (list, val) => list!.contains(val),
         onItemSearch: (object, query) {
-          String? search;
+          String? search = WavenHero.getStringOfClass(object);
           if (search is String) {
             return search.toLowerCase().contains(query.toLowerCase());
           }
@@ -68,16 +67,19 @@ class _HeroCardListState extends State<HeroCardList> {
         },
         onApplyButtonClick: (list) {
           setState(() {
-            classHeroSelected = List.from(list!);
-            if (classHeroSelected.isEmpty) {
+            print(list);
+            classHeroesSelected = List.from(list!);
+            if (classHeroesSelected.isEmpty) {
               filteredHeros = widget.heros;
             } else {
               filteredHeros = widget.heros.where((hero) {
-                var findClassHero = false;
+                bool findRoles = true;
                 for (var element in list) {
-                  if (hero.classHero == element) findClassHero = true;
+                  if (hero.classHero == element) {
+                    findRoles = false;
+                  }
                 }
-                return findClassHero;
+                return findRoles;
               }).toList();
             }
           });
@@ -86,9 +88,8 @@ class _HeroCardListState extends State<HeroCardList> {
       );
     }
 
-    filteredHeros = classHeroSelected.isEmpty ? widget.heros : filteredHeros;
+    filteredHeros = classHeroesSelected.isEmpty ? widget.heros : filteredHeros;
     return Scaffold(
-        resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
           onPressed: openFilterDialog,
           child: const Icon(Icons.filter_list),
@@ -103,28 +104,45 @@ class _HeroCardListState extends State<HeroCardList> {
                     crossAxisCount:
                         orientation == Orientation.landscape ? 6 : 3),
                 itemBuilder: (context, index) => InkWell(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                HeroShow(hero: filteredHeros[index]))),
+                    onTap: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return SimpleDialog(
+                              title: Row(
+                                children: [
+                                  Image.asset(
+                                    filteredHeros[index].icon ?? '',
+                                    height: 48,
+                                  ),
+                                  Text(filteredHeros[index].name)
+                                ],
+                              ),
+                              children: [HeroShow(hero: filteredHeros[index])]);
+                        }),
                     child: Card(
+                        elevation: 4.0,
                         child: Column(children: <Widget>[
-                      AspectRatio(
-                          aspectRatio: 1.4,
-                          child: Image.asset(filteredHeros[index].logo ?? '')),
-                      Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.secondary,
+                          SizedBox(
+                            height: 77.0,
+                            child: Ink.image(
+                              image:
+                                  AssetImage(filteredHeros[index].logo ?? ''),
+                              fit: BoxFit.fitHeight,
+                            ),
                           ),
-                          child: Padding(
-                              padding: const EdgeInsets.only(top: 4, bottom: 4),
-                              child: Text(filteredHeros[index].name,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.center)))
-                    ]))),
+                          Container(
+                            padding: const EdgeInsets.all(8.0),
+                            alignment: Alignment.centerLeft,
+                            child: Text(filteredHeros[index].name,
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                textAlign: TextAlign.center),
+                          ),
+                        ]))),
                 itemCount: filteredHeros.length));
   }
 }
