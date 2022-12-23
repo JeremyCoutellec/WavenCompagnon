@@ -122,73 +122,6 @@
     },
     {
         "type": "anneau",
-        "name": "Anneau Fer",
-        "icon": "images/stuffs/anneau_fer.png",
-        "caracts": [
-            {
-                "caract": "atHero",
-                "number": 25,
-                "grimoire": 15
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 1,
-                "isCompagnon": true
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 1,
-                "isCompagnon": true
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "g1510ATHero",
-                "number": 10
-            },
-            {
-                "caract": "xpHero",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau de vie",
-        "icon": "images/stuffs/anneau_vie.png",
-        "caracts": [
-            {
-                "caract": "ftPA",
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "ftAddPa",
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "dropKama",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
         "name": "Anneau Deter",
         "icon": "images/stuffs/anneau_deter.png",
         "caracts": [
@@ -211,6 +144,74 @@
             {
                 "caract": "ccMagic",
                 "number": 5
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Devy",
+        "icon": "images/stuffs/anneau_devy.png",
+        "caracts": [
+            {
+                "caract": "ftPA",
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "ftAddPa",
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "dropKama",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Fer",
+        "icon": "images/stuffs/anneau_fer.png",
+        "caracts": [
+            {
+                "caract": "atHero",
+                "number": 25,
+                "grimoire": 15
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 1,
+                "isCompagnon": true
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 1,
+                "isCompagnon": true
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "g1510ATHero",
+                "number": 10,
+                "grimoire": 15
+            },
+            {
+                "caract": "xpHero",
+                "number": 5,
+                "isHero": false
             }
         ]
     },
@@ -253,7 +254,7 @@
                 "caract": "g15ft1Ether",
                 "number": 1,
                 "grimoire": 15,
-                "debutTour": true,
+                "firstTour": true,
                 "isHero": false
             },
             {
@@ -274,6 +275,7 @@
                 "caract": "g15ft1addEther",
                 "number": 1,
                 "grimoire": 15,
+                "firstTour": true,
                 "isHero": false
             },
             {
@@ -290,7 +292,7 @@
         "caracts": [
             {
                 "caract": "ftEvente",
-                "debutTour": true,
+                "firstTour": true,
                 "isHero": false
             },
             {
@@ -311,370 +313,6 @@
                 "caract": "dropKama",
                 "number": 5,
                 "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Pignatre",
-        "icon": "images/stuffs/anneau_pignatre.png",
-        "caracts": [
-            {
-                "caract": "canFirstSummonTwice",
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "ccCompagnon",
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "dropKama",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Problemo",
-        "icon": "images/stuffs/anneau_problemo.png",
-        "caracts": [
-            {
-                "caract": "deathATCompagnonToARHero",
-                "isCompagnon": true
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "deathDoubleATCompagnonToARHero",
-                "isCompagnon": true
-            },
-            {
-                "caract": "dropKama",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Ptimâle",
-        "icon": "images/stuffs/anneau_ptimale.png",
-        "caracts": [
-            {
-                "caract": "ftAdd2Cards",
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "atHero",
-                "number": 1
-            },
-            {
-                "caract": "aura",
-                "number": 1
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "add1card",
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 10,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Rifice",
-        "icon": "images/stuffs/anneau_rifice.png",
-        "caracts": [
-            {
-                "caract": "g15ftReduceCards",
-                "debutTour": true,
-                "grimoire": 15,
-                "isHero": false
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "magicAll",
-                "number": 1
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "xpHero",
-                "number": 5,
-                "isHero": false
-            },
-            {
-                "caract": "dropKama",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Rifique",
-        "icon": "images/stuffs/anneau_rifique.png",
-        "caracts": [
-            {
-                "caract": "ft5pvHeroToAR",
-                "debutTour": true
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "defenseHero",
-                "number": 1
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "ccMagic",
-                "number": 5
-            },
-            {
-                "caract": "dropKama",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Steké",
-        "icon": "images/stuffs/anneau_steke.png",
-        "caracts": [
-            {
-                "caract": "ftMouille",
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "magicEau",
-                "number": 1
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "addMouille",
-                "isHero": false
-            },
-            {
-                "caract": "dropKama",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Stradamus",
-        "icon": "images/stuffs/anneau_stradamus.png",
-        "caracts": [
-            {
-                "caract": "summon25AT",
-                "debutTour": true,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "magicAll",
-                "number": 1
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "summonAdd15AT",
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "magicAll",
-                "number": 10
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Telo",
-        "icon": "images/stuffs/anneau_telo.png",
-        "caracts": [
-            {
-                "caract": "ftHuile",
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "magicFeu",
-                "number": 1
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "addHuile",
-                "isHero": false
-            },
-            {
-                "caract": "dropKama",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Tomatik",
-        "icon": "images/stuffs/anneau_tomatik.png",
-        "caracts": [
-            {
-                "caract": "ccMagic",
-                "number": 5
-            },
-            {
-                "caract": "atHero",
-                "number": 1
-            },
-            {
-                "caract": "aura",
-                "number": 1
-            },
-            {
-                "caract": "magicAll",
-                "number": 1
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "ccMagic",
-                "number": 2
-            },
-            {
-                "caract": "degatCCMagic",
-                "number": 10
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Vulant",
-        "icon": "images/stuffs/anneau_vulant.png",
-        "caracts": [
-            {
-                "caract": "g12ft2PA",
-                "grimoire": 12,
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 1,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "g12ftAdd2PA",
-                "grimoire": 12,
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "xpHero",
-                "number": 5,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Vulk'Anneau",
-        "icon": "images/stuffs/anneau_vulk.png",
-        "caracts": [
-            {
-                "caract": "summon50AT",
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "magicFeu",
-                "number": 2
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "xpHero",
-                "number": 5,
-                "isHero": false
-            },
-            {
-                "caract": "ccMagic",
-                "number": 5
             }
         ]
     },
@@ -740,6 +378,7 @@
         "addCaracts": [
             {
                 "caract": "ccCompagnon",
+                "number": 3,
                 "isCompagnon": true,
                 "isHero": false
             },
@@ -773,9 +412,410 @@
             },
             {
                 "caract": "degatCCCompagnon",
-                "number": 20,
+                "number": 10,
                 "isCompagnon": true,
                 "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Pignâtre",
+        "icon": "images/stuffs/anneau_pignatre.png",
+        "caracts": [
+            {
+                "caract": "canFirstSummonTwice",
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "ccCompagnon",
+                "number": 3,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "dropKama",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Pital",
+        "icon": "images/stuffs/anneau_pital.png",
+        "caracts": [
+            {
+                "caract": "drainHero",
+                "number": 20,
+                "grimoire": 15
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "addDrainHero",
+                "number": 20,
+                "grimoire": 15
+            },
+            {
+                "caract": "degatCCCompagnon",
+                "number": 10,
+                "isCompagnon": false,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Problemo",
+        "icon": "images/stuffs/anneau_problemo.png",
+        "caracts": [
+            {
+                "caract": "deathATCompagnonToARHero",
+                "isCompagnon": true
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "deathDoubleATCompagnonToARHero",
+                "isCompagnon": true
+            },
+            {
+                "caract": "dropKama",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Ptimâle",
+        "icon": "images/stuffs/anneau_ptimale.png",
+        "caracts": [
+            {
+                "caract": "ftAdd2Cards",
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "add1card",
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 10,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Rifice",
+        "icon": "images/stuffs/anneau_rifice.png",
+        "caracts": [
+            {
+                "caract": "g15ftReduceCards",
+                "firstTour": true,
+                "grimoire": 15,
+                "isHero": false
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "magicAll",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "xpHero",
+                "number": 5,
+                "isHero": false
+            },
+            {
+                "caract": "dropKama",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Rifique",
+        "icon": "images/stuffs/anneau_rifique.png",
+        "caracts": [
+            {
+                "caract": "ft5pvHeroToAR",
+                "firstTour": true
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "defenseHero",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "ccMagic",
+                "number": 5
+            },
+            {
+                "caract": "dropKama",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Steké",
+        "icon": "images/stuffs/anneau_steke.png",
+        "caracts": [
+            {
+                "caract": "ftMouille",
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "magicEau",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "addMouille",
+                "isHero": false
+            },
+            {
+                "caract": "dropKama",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Stradamus",
+        "icon": "images/stuffs/anneau_stradamus.png",
+        "caracts": [
+            {
+                "caract": "summon25AT",
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "magicAll",
+                "number": 1
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "summonAdd15AT",
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "magicAll",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Telo",
+        "icon": "images/stuffs/anneau_telo.png",
+        "caracts": [
+            {
+                "caract": "ftHuile",
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "magicFeu",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "addHuile",
+                "isHero": false
+            },
+            {
+                "caract": "dropKama",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Tomatik",
+        "icon": "images/stuffs/anneau_tomatik.png",
+        "caracts": [
+            {
+                "caract": "ccMagic",
+                "number": 5
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            },
+            {
+                "caract": "magicAll",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "ccMagic",
+                "number": 2
+            },
+            {
+                "caract": "degatCCMagic",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Vulant",
+        "icon": "images/stuffs/anneau_vulant.png",
+        "caracts": [
+            {
+                "caract": "g12ft2PA",
+                "grimoire": 12,
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 1,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "g12ftAdd2PA",
+                "grimoire": 12,
+                "firstTour": true,
+                "isHero": false
+            },
+            {
+                "caract": "xpHero",
+                "number": 5,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Vulk'Anneau",
+        "icon": "images/stuffs/anneau_vulk.png",
+        "caracts": [
+            {
+                "caract": "summon50AT",
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "magicFeu",
+                "number": 2
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "xpHero",
+                "number": 5,
+                "isHero": false
+            },
+            {
+                "caract": "ccMagic",
+                "number": 5
             }
         ]
     },
@@ -1025,7 +1065,7 @@
         "type": "anneau",
         "name": "Anneau Hell",
         "rarity": "rare",
-        "icon": "images/stuffs/anneau_fuego.png",
+        "icon": "images/stuffs/anneau_hell.png",
         "caracts": [
             {
                 "caract": "attackGreleCompagnon",
@@ -1052,6 +1092,7 @@
         "addCaracts": [
             {
                 "caract": "ccCompagnon",
+                "number": 5,
                 "isCompagnon": true,
                 "isHero": false
             },
@@ -1082,7 +1123,7 @@
                 "number": 1
             },
             {
-                "caract": "magicEau",
+                "caract": "magicFeu",
                 "number": 1
             },
             {
@@ -1164,7 +1205,7 @@
                 "number": 1
             },
             {
-                "caract": "MagicAir",
+                "caract": "magicAir",
                 "number": 1
             }
         ],
@@ -1276,7 +1317,7 @@
             {
                 "caract": "g12ft1aura",
                 "grimoire": 12,
-                "debutTour": true
+                "firstTour": true
             },
             {
                 "caract": "pvHero",
@@ -1390,17 +1431,15 @@
         ],
         "addCaracts": [
             {
+                "caract": "heal",
+                "number": 20
+            },
+            {
+                "caract": "esquiveHero",
+                "number": 3
+            },
+            {
                 "caract": "p50Avalanche"
-            },
-            {
-                "caract": "dropAll",
-                "number": 5,
-                "isHero": false
-            },
-            {
-                "caract": "dropBrassard",
-                "number": 3,
-                "isHero": false
             }
         ]
     },
@@ -1448,6 +1487,7 @@
         "caracts": [
             {
                 "caract": "ftAstral",
+                "firstTour": true,
                 "isHero": false
             },
             {
@@ -1605,7 +1645,7 @@
     {
         "type": "anneau",
         "name": "Anneau Bélisk",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_belisk.png",
         "caracts": [
             {
@@ -1656,12 +1696,12 @@
     {
         "type": "anneau",
         "name": "Anneau Céan",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_cean.png",
         "caracts": [
             {
                 "caract": "ftAddCean",
-                "debutTour": true,
+                "firstTour": true,
                 "isHero": false
             },
             {
@@ -1709,12 +1749,12 @@
     {
         "type": "anneau",
         "name": "Anneau Ctane",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_ctane.png",
         "caracts": [
             {
                 "caract": "ftAddCtane",
-                "debutTour": true,
+                "firstTour": true,
                 "isHero": false
             },
             {
@@ -1762,12 +1802,12 @@
     {
         "type": "anneau",
         "name": "Anneau Cyprès",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_cypres.png",
         "caracts": [
             {
                 "caract": "ftAddCypress",
-                "debutTour": true,
+                "firstTour": true,
                 "isHero": false
             },
             {
@@ -1815,7 +1855,7 @@
     {
         "type": "anneau",
         "name": "Anneau Kupant",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_kupant.png",
         "caracts": [
             {
@@ -1832,7 +1872,7 @@
             },
             {
                 "caract": "aura",
-                "number": 2
+                "number": 1
             },
             {
                 "caract": "magicAll",
@@ -1865,8 +1905,61 @@
     },
     {
         "type": "anneau",
+        "name": "Anneau Ragan",
+        "rarity": "krosmique",
+        "icon": "images/stuffs/anneau_ragan.png",
+        "caracts": [
+            {
+                "caract": "ftAddRagan",
+                "startFight": true,
+                "isHero": false
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            },
+            {
+                "caract": "magicAir",
+                "number": 2
+            },
+            {
+                "caract": "magicRebond",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "ccCompagnon",
+                "number": 3,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "collision",
+                "number": 20
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 20,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 20,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
         "name": "Anneau Rak",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_rak.png",
         "caracts": [
             {
@@ -1914,61 +2007,8 @@
     },
     {
         "type": "anneau",
-        "name": "Anneau Ragan",
-        "rarity": "epic",
-        "icon": "images/stuffs/anneau_ragan.png",
-        "caracts": [
-            {
-                "caract": "ftAddRagan",
-                "debutTour": true,
-                "isHero": false
-            },
-            {
-                "caract": "atHero",
-                "number": 1
-            },
-            {
-                "caract": "aura",
-                "number": 1
-            },
-            {
-                "caract": "magicAir",
-                "number": 2
-            },
-            {
-                "caract": "magicRebond",
-                "number": 1
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "ccCompagnon",
-                "number": 3,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "collision",
-                "number": 20
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 20,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 20,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
         "name": "Anneau Recrux",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_recrux.png",
         "caracts": [
             {
@@ -2022,7 +2062,7 @@
     {
         "type": "anneau",
         "name": "Anneau Remal",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_remal.png",
         "caracts": [
             {
@@ -2072,7 +2112,7 @@
     {
         "type": "anneau",
         "name": "Anneau Tilus",
-        "rarity": "epic",
+        "rarity": "krosmique",
         "icon": "images/stuffs/anneau_tilus.png",
         "caracts": [
             {
@@ -2098,10 +2138,8 @@
         ],
         "addCaracts": [
             {
-                "caract": "degatCCCompagnon",
-                "number": 40,
-                "isCompagnon": true,
-                "isHero": false
+                "caract": "xpHero",
+                "number": 3
             },
             {
                 "caract": "heal",
@@ -2114,15 +2152,79 @@
                 "isHero": false
             },
             {
+                "caract": "degatCCCompagnon",
+                "number": 40,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
+        "name": "Anneau Racle",
+        "rarity": "infinite",
+        "icon": "images/stuffs/anneau_racle.png",
+        "caracts": [
+            {
+                "caract": "killAir"
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "magicRebond",
+                "number": 1
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 2,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 2,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "add5KillAir"
+            },
+            {
                 "caract": "xpHero",
-                "number": 3
+                "number": 5,
+                "isHero": false
+            },
+            {
+                "caract": "ccMagic",
+                "number": 5
+            },
+            {
+                "caract": "ccCompagnon",
+                "number": 5,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "degatCCCompagnon",
+                "number": 40,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "dropKama",
+                "number": 10,
+                "isHero": false
             }
         ]
     },
     {
         "type": "anneau",
         "name": "Anneau Rore",
-        "rarity": "legendary",
+        "rarity": "infinite",
         "icon": "images/stuffs/anneau_rore.png",
         "caracts": [
             {
@@ -2183,8 +2285,70 @@
     },
     {
         "type": "anneau",
+        "name": "Anneau Rouboros",
+        "rarity": "infinite",
+        "icon": "images/stuffs/anneau_rouboros.png",
+        "caracts": [
+            {
+                "caract": "killTerre"
+            },
+            {
+                "caract": "pvHero",
+                "number": 1
+            },
+            {
+                "caract": "magicTourbe",
+                "number": 1
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 2,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 2,
+                "isCompagnon": true,
+                "isHero": false
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "add5KillTerre"
+            },
+            {
+                "caract": "xpHero",
+                "number": 5,
+                "isHero": false
+            },
+            {
+                "caract": "ccMagic",
+                "number": 5
+            },
+            {
+                "caract": "ccCompagnon",
+                "number": 5,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "degatCCCompagnon",
+                "number": 40,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "dropKama",
+                "number": 10,
+                "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "anneau",
         "name": "Le Boom Boom",
-        "rarity": "legendary",
+        "rarity": "infinite",
         "icon": "images/stuffs/anneau_boom.png",
         "caracts": [
             {
@@ -2248,7 +2412,7 @@
     {
         "type": "anneau",
         "name": "Le Friskouille",
-        "rarity": "legendary",
+        "rarity": "infinite",
         "icon": "images/stuffs/anneau_friskouille.png",
         "caracts": [
             {
@@ -2312,7 +2476,7 @@
     {
         "type": "anneau",
         "name": "Le Kralamourton",
-        "rarity": "legendary",
+        "rarity": "infinite",
         "icon": "images/stuffs/anneau_kralamourton.png",
         "caracts": [
             {
@@ -2376,7 +2540,7 @@
     {
         "type": "anneau",
         "name": "Le Ratisseur",
-        "rarity": "legendary",
+        "rarity": "infinite",
         "icon": "images/stuffs/anneau_ratisseur.png",
         "caracts": [
             {
@@ -2439,132 +2603,8 @@
     },
     {
         "type": "anneau",
-        "name": "Anneau Rouboros",
-        "rarity": "legendary",
-        "icon": "images/stuffs/anneau_rouboros.png",
-        "caracts": [
-            {
-                "caract": "killTerre"
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "magicTourbe",
-                "number": 1
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 2,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 2,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "add5KillTerre"
-            },
-            {
-                "caract": "xpHero",
-                "number": 5,
-                "isHero": false
-            },
-            {
-                "caract": "ccMagic",
-                "number": 5
-            },
-            {
-                "caract": "ccCompagnon",
-                "number": 5,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "degatCCCompagnon",
-                "number": 40,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "dropKama",
-                "number": 10,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
-        "name": "Anneau Racle",
-        "rarity": "legendary",
-        "icon": "images/stuffs/anneau_racle.png",
-        "caracts": [
-            {
-                "caract": "killAir"
-            },
-            {
-                "caract": "pvHero",
-                "number": 1
-            },
-            {
-                "caract": "magicRebond",
-                "number": 1
-            },
-            {
-                "caract": "pvCompagnon",
-                "number": 2,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "atCompagnon",
-                "number": 2,
-                "isCompagnon": true,
-                "isHero": false
-            }
-        ],
-        "addCaracts": [
-            {
-                "caract": "add5KillAir"
-            },
-            {
-                "caract": "xpHero",
-                "number": 5,
-                "isHero": false
-            },
-            {
-                "caract": "ccMagic",
-                "number": 5
-            },
-            {
-                "caract": "ccCompagnon",
-                "number": 5,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "degatCCCompagnon",
-                "number": 40,
-                "isCompagnon": true,
-                "isHero": false
-            },
-            {
-                "caract": "dropKama",
-                "number": 10,
-                "isHero": false
-            }
-        ]
-    },
-    {
-        "type": "anneau",
         "name": "Anneau Verboukée",
-        "rarity": "legendary",
+        "rarity": "infinite",
         "icon": "images/stuffs/anneau_verboukee.png",
         "caracts": [
             {
@@ -2620,6 +2660,708 @@
                 "caract": "dropKama",
                 "number": 10,
                 "isHero": false
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Akne",
+        "rarity": "common",
+        "icon": "images/stuffs/brassard_akne.png",
+        "caracts": [
+            {
+                "caract": "repousse2",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "repousse2Add",
+                "critique": true
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Dent",
+        "rarity": "common",
+        "icon": "images/stuffs/brassard_dent.png",
+        "caracts": [
+            {
+                "caract": "atBehind",
+                "number": 50,
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "cibleAstral",
+                "critique": true
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Gousin",
+        "rarity": "common",
+        "icon": "images/stuffs/brassard_gousin.png",
+        "caracts": [
+            {
+                "caract": "reduceLastCard",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "reduce2NextCards",
+                "critique": true
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Kange",
+        "rarity": "common",
+        "icon": "images/stuffs/brassard_kange.png",
+        "caracts": [
+            {
+                "caract": "goback2",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "healAT",
+                "critique": true
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Nakeuh",
+        "rarity": "common",
+        "icon": "images/stuffs/brassard_nakeuh.png",
+        "caracts": [
+            {
+                "caract": "tpBehind",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "replay",
+                "critique": true
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Ogan",
+        "rarity": "common",
+        "icon": "images/stuffs/brassard_ogan.png",
+        "caracts": [
+            {
+                "caract": "atAdj",
+                "number": 25,
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "repousse2Adj",
+                "critique": true
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Papy Brassard",
+        "rarity": "common",
+        "icon": "images/stuffs/brassard_papy.png",
+        "caracts": [
+            {
+                "caract": "arHero",
+                "number": 13,
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "doubleARHero",
+                "critique": true
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Chevek",
+        "rarity": "rare",
+        "icon": "images/stuffs/brassard_chevek.png",
+        "caracts": [
+            {
+                "caract": "evente",
+                "attaque": true,
+                "isHero": false
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "eventeAutour",
+                "critique": true,
+                "isHero": false
+            },
+            {
+                "caract": "magicAir",
+                "number": 20
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Dou",
+        "rarity": "rare",
+        "icon": "images/stuffs/brassard_dou.png",
+        "caracts": [
+            {
+                "caract": "addAtUntilEnd",
+                "number": 5,
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "healAT",
+                "critique": true
+            },
+            {
+                "caract": "atHero",
+                "number": 10
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Gile",
+        "rarity": "rare",
+        "icon": "images/stuffs/brassard_gile.png",
+        "caracts": [
+            {
+                "caract": "boueux",
+                "attaque": true,
+                "isHero": false
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "boueuxAutour",
+                "critique": true,
+                "isHero": false
+            },
+            {
+                "caract": "magicTerre",
+                "number": 20
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Gonote",
+        "rarity": "rare",
+        "icon": "images/stuffs/brassard_gonote.png",
+        "caracts": [
+            {
+                "caract": "huile",
+                "attaque": true,
+                "isHero": false
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "huileAutour",
+                "critique": true,
+                "isHero": false
+            },
+            {
+                "caract": "magicFeu",
+                "number": 20
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Kasm",
+        "rarity": "rare",
+        "icon": "images/stuffs/brassard_kasm.png",
+        "caracts": [
+            {
+                "caract": "mouille",
+                "attaque": true,
+                "isHero": false
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "mouilleAutour",
+                "critique": true,
+                "isHero": false
+            },
+            {
+                "caract": "magicEau",
+                "number": 20
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Ticho",
+        "rarity": "rare",
+        "icon": "images/stuffs/brassard_ticho.png",
+        "caracts": [
+            {
+                "caract": "tpCompagnon",
+                "attaque": true,
+                "isCompagnon": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "arHeroAndCompagnonOnTP",
+                "critique": true,
+                "isCompagnon": true
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 10,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Dine",
+        "rarity": "krosmique",
+        "icon": "images/stuffs/brassard_dine.png",
+        "caracts": [
+            {
+                "caract": "grele",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            },
+            {
+                "caract": "magicEau",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "grele2Times",
+                "critique": true
+            },
+            {
+                "caract": "magicGrele",
+                "number": 20
+            },
+            {
+                "caract": "degaCCHero",
+                "number": 30
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Mada",
+        "rarity": "krosmique",
+        "icon": "images/stuffs/brassard_mada.png",
+        "caracts": [
+            {
+                "caract": "rebond",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            },
+            {
+                "caract": "magicAir",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "rebond2Times",
+                "critique": true
+            },
+            {
+                "caract": "magicRebond",
+                "number": 20
+            },
+            {
+                "caract": "degaCCHero",
+                "number": 30
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Turien",
+        "rarity": "krosmique",
+        "icon": "images/stuffs/brassard_turien.png",
+        "caracts": [
+            {
+                "caract": "tourbe",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            },
+            {
+                "caract": "magicTerre",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "tourbe2Times",
+                "critique": true
+            },
+            {
+                "caract": "magicTourbe",
+                "number": 20
+            },
+            {
+                "caract": "degaCCHero",
+                "number": 30
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Tyste",
+        "rarity": "krosmique",
+        "icon": "images/stuffs/brassard_tyste.png",
+        "caracts": [
+            {
+                "caract": "explo",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            },
+            {
+                "caract": "magicFeu",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "explo2Times",
+                "critique": true
+            },
+            {
+                "caract": "magicExplo",
+                "number": 20
+            },
+            {
+                "caract": "degaCCHero",
+                "number": 30
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Kantiel",
+        "rarity": "infinite",
+        "icon": "images/stuffs/brassard_kantiel.png",
+        "caracts": [
+            {
+                "caract": "astral",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "reduce2FirstCards",
+                "critique": true,
+                "isHero": false
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 20,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 10,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "xpHero",
+                "number": 5,
+                "isHero": false
+            },
+            {
+                "caract": "degaCCHero",
+                "number": 40
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
+            }
+        ]
+    },
+    {
+        "type": "brassard",
+        "name": "Brassard Leukin",
+        "rarity": "infinite",
+        "icon": "images/stuffs/brassard_leukin.png",
+        "caracts": [
+            {
+                "caract": "shield",
+                "attaque": true
+            },
+            {
+                "caract": "atHero",
+                "number": 1
+            },
+            {
+                "caract": "aura",
+                "number": 1
+            }
+        ],
+        "addCaracts": [
+            {
+                "caract": "shieldAll",
+                "critique": true,
+                "isCompagnon": true
+            },
+            {
+                "caract": "pvCompagnon",
+                "number": 20,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "atCompagnon",
+                "number": 10,
+                "isCompagnon": true,
+                "isHero": false
+            },
+            {
+                "caract": "xpHero",
+                "number": 5,
+                "isHero": false
+            },
+            {
+                "caract": "degaCCHero",
+                "number": 40
+            },
+            {
+                "caract": "ccHero",
+                "number": 10
             }
         ]
     }

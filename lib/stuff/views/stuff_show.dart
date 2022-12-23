@@ -14,7 +14,7 @@ class StuffShow extends StatelessWidget {
         Center(
             child: Image.asset(
           stuff.icon ?? '',
-          height: MediaQuery.of(context).size.height / 3,
+          height: MediaQuery.of(context).size.height / 4,
         )),
         Container(
             width: double.infinity,

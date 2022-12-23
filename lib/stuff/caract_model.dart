@@ -1,6 +1,11 @@
 enum Caract {
   pvHero,
   atHero,
+  atAdj,
+  addATUntilEnd,
+  arHero,
+  doubleARHero,
+  arHeroAndCompagnonOnTP,
   defenseHero,
   esquiveHero,
   riposteHero,
@@ -9,19 +14,28 @@ enum Caract {
   xpHero,
   ccHero,
   ccMagic,
+  degatCCHero,
   degatCCMagic,
   dropKama,
   dropBrassard,
+  dropSort,
   dropAll,
   aura,
   heal,
+  healAT,
+  shield,
+  shieldAll,
   collision,
   collisionPA,
   collisionAddPA,
+  repousse2,
+  repousse2Adj,
+  repousse2Add,
   pvCompagnon,
   atCompagnon,
   drainCompagnon,
   addDrainCompagnon,
+  atBehind,
   ccCompagnon,
   degatCCCompagnon,
   canFirstSummonTwice,
@@ -50,8 +64,12 @@ enum Caract {
   deathDoubleATCompagnonToARHero,
   magicAll,
   magicEau,
+  mouille,
+  mouilleAutour,
   ftMouille,
   addMouille,
+  grele,
+  grele2Times,
   magicGrele,
   p20cardEau,
   p5cardEau,
@@ -60,6 +78,8 @@ enum Caract {
   killEau,
   add5KillEau,
   magicAir,
+  evente,
+  eventeAutour,
   ftEvente,
   addEvent,
   p20cardAir,
@@ -68,8 +88,12 @@ enum Caract {
   ftCaracole,
   killAir,
   add5KillAir,
+  rebond,
+  rebond2Times,
   magicRebond,
   magicTerre,
+  boueux,
+  boueuxAutour,
   ftBoueux,
   addBoueux,
   p20cardTerre,
@@ -78,8 +102,12 @@ enum Caract {
   ftBroyage,
   killTerre,
   add5KillTerre,
+  tourbe,
+  tourbe2Times,
   magicTourbe,
   magicFeu,
+  huile,
+  huileAutour,
   ftHuile,
   addHuile,
   p20cardFeu,
@@ -88,6 +116,8 @@ enum Caract {
   ftBoom,
   killFeu,
   add5KillFeu,
+  explo,
+  explo2Times,
   magicExplo,
   g1510ATHero,
   g15ft1Ether,
@@ -96,7 +126,9 @@ enum Caract {
   ftAddPa,
   ftAdd2Cards,
   add1card,
+  astral,
   ftAstral,
+  cibleAstral,
   addAstral,
   g15ftReduceCards,
   ft5pvHeroToAR,
@@ -131,6 +163,14 @@ enum Caract {
   geyser,
   geyserAdd,
   p50Geyser,
+  reduceLastCard,
+  reduce2NextCards,
+  reduce2FirstCards,
+  goback2,
+  tpBehind,
+  tpBehindHero,
+  tpCompagnon,
+  replay
 }
 
 enum CaractType {
@@ -174,13 +214,18 @@ enum CaractType {
   huile,
   cardFeu,
   astral,
-  affinite
+  affinite,
+  mouvement
 }
 
 class WavenCaract {
   Caract? _caract;
   int? _number;
   int? _grimoire;
+  bool _attaque = false;
+  bool _critique = false;
+  bool _startFight = false;
+  bool _firstTour = false;
   bool _debutTour = false;
   bool _finTour = false;
   bool _isCompagnon = false;
@@ -189,6 +234,10 @@ class WavenCaract {
   Caract? get caract => _caract;
   int? get number => _number;
   int? get grimoire => _grimoire;
+  bool get attaque => _attaque;
+  bool get critique => _critique;
+  bool get startFight => _startFight;
+  bool get firstTour => _firstTour;
   bool get debutTour => _debutTour;
   bool get finTour => _finTour;
   bool get isCompagnon => _isCompagnon;
@@ -198,6 +247,10 @@ class WavenCaract {
     caract,
     number,
     grimoire,
+    attaque,
+    critique,
+    startFight,
+    firstTour,
     debutTour,
     finTour,
     isCompagnon,
@@ -206,6 +259,10 @@ class WavenCaract {
     _caract = caract;
     _number = number;
     _grimoire = grimoire;
+    _attaque = attaque;
+    _critique = critique;
+    _startFight = startFight;
+    _firstTour = firstTour;
     _debutTour = debutTour;
     _finTour = finTour;
     _isCompagnon = isCompagnon;
@@ -216,15 +273,23 @@ class WavenCaract {
       : _caract = WavenCaract.getCaractByJson(json['caract']),
         _number = json['number'],
         _grimoire = json['grimoire'],
-        _debutTour = json['debutTour'] == 'true',
-        _finTour = json['finTour'] == 'true',
-        _isCompagnon = json['isCompagnon'] == 'true',
-        _isHero = json['isHero'] == 'true';
+        _attaque = json['attaque'] == true,
+        _critique = json['critique'] == true,
+        _startFight = json['startFight'] == true,
+        _firstTour = json['firstTour'] == true,
+        _debutTour = json['debutTour'] == true,
+        _finTour = json['finTour'] == true,
+        _isCompagnon = json['isCompagnon'] == true,
+        _isHero = json['isHero'] == true;
 
   Map<String, dynamic> toJson() => {
         'caract': caract,
         'number': number,
         'grimoire': grimoire,
+        'attaque': attaque,
+        'critique': critique,
+        'startFight': startFight,
+        'firstTour': firstTour,
         'debutTour': debutTour,
         'finTour': finTour,
         'isCompagnon': isCompagnon,
@@ -245,6 +310,16 @@ class WavenCaract {
         return Caract.pvHero;
       case "atHero":
         return Caract.atHero;
+      case "atAdj":
+        return Caract.atAdj;
+      case "addATUntilEnd":
+        return Caract.addATUntilEnd;
+      case "arHero":
+        return Caract.arHero;
+      case "doubleARHero":
+        return Caract.doubleARHero;
+      case "arHeroAndCompagnonOnTP":
+        return Caract.arHeroAndCompagnonOnTP;
       case "defenseHero":
         return Caract.defenseHero;
       case "esquiveHero":
@@ -261,18 +336,28 @@ class WavenCaract {
         return Caract.ccHero;
       case "ccMagic":
         return Caract.ccMagic;
+      case "degatCCHero":
+        return Caract.degatCCHero;
       case "degatCCMagic":
         return Caract.degatCCMagic;
       case "dropKama":
         return Caract.dropKama;
       case "dropBrassard":
         return Caract.dropBrassard;
+      case "dropSort":
+        return Caract.dropSort;
       case "dropAll":
         return Caract.dropAll;
       case "aura":
         return Caract.aura;
       case "heal":
         return Caract.heal;
+      case "healAT":
+        return Caract.healAT;
+      case "shield":
+        return Caract.shield;
+      case "shieldAll":
+        return Caract.shieldAll;
       case "collision":
         return Caract.collision;
       case "collisionPA":
@@ -343,10 +428,18 @@ class WavenCaract {
         return Caract.magicAll;
       case "magicEau":
         return Caract.magicEau;
+      case "mouille":
+        return Caract.mouille;
+      case "mouilleAutour":
+        return Caract.mouilleAutour;
       case "ftMouille":
         return Caract.ftMouille;
       case "addMouille":
         return Caract.addMouille;
+      case "grele":
+        return Caract.grele;
+      case "grele2Times":
+        return Caract.grele2Times;
       case "magicGrele":
         return Caract.magicGrele;
       case "p20cardEau":
@@ -363,6 +456,10 @@ class WavenCaract {
         return Caract.add5KillEau;
       case "magicAir":
         return Caract.magicAir;
+      case "evente":
+        return Caract.evente;
+      case "eventeAutour":
+        return Caract.eventeAutour;
       case "ftEvente":
         return Caract.ftEvente;
       case "addEvent":
@@ -379,10 +476,18 @@ class WavenCaract {
         return Caract.killAir;
       case "add5KillAir":
         return Caract.add5KillAir;
+      case "rebond":
+        return Caract.rebond;
+      case "rebond2Times":
+        return Caract.rebond2Times;
       case "magicRebond":
         return Caract.magicRebond;
       case "magicTerre":
         return Caract.magicTerre;
+      case "boueux":
+        return Caract.boueux;
+      case "boueuxAutour":
+        return Caract.boueuxAutour;
       case "ftBoueux":
         return Caract.ftBoueux;
       case "addBoueux":
@@ -399,10 +504,18 @@ class WavenCaract {
         return Caract.killTerre;
       case "add5KillTerre":
         return Caract.add5KillTerre;
+      case "tourbe":
+        return Caract.tourbe;
+      case "tourbe2Times":
+        return Caract.tourbe2Times;
       case "magicTourbe":
         return Caract.magicTourbe;
       case "magicFeu":
         return Caract.magicFeu;
+      case "huile":
+        return Caract.huile;
+      case "huileAutour":
+        return Caract.huileAutour;
       case "ftHuile":
         return Caract.ftHuile;
       case "addHuile":
@@ -419,6 +532,10 @@ class WavenCaract {
         return Caract.killFeu;
       case "add5KillFeu":
         return Caract.add5KillFeu;
+      case "explo":
+        return Caract.explo;
+      case "explo2Times":
+        return Caract.explo2Times;
       case "magicExplo":
         return Caract.magicExplo;
       case "g1510ATHero":
@@ -435,8 +552,12 @@ class WavenCaract {
         return Caract.ftAdd2Cards;
       case "add1card":
         return Caract.add1card;
+      case "astral":
+        return Caract.astral;
       case "ftAstral":
         return Caract.ftAstral;
+      case "cibleAstral":
+        return Caract.cibleAstral;
       case "addAstral":
         return Caract.addAstral;
       case "g15ftReduceCards":
@@ -505,6 +626,30 @@ class WavenCaract {
         return Caract.geyserAdd;
       case "p50Geyser":
         return Caract.p50Geyser;
+      case "repousse2":
+        return Caract.repousse2;
+      case "repousse2Adj":
+        return Caract.repousse2Adj;
+      case "repousse2Add":
+        return Caract.repousse2Add;
+      case "reduceLastCard":
+        return Caract.reduceLastCard;
+      case "reduce2NextCards":
+        return Caract.reduce2NextCards;
+      case "reduce2FirstCards":
+        return Caract.reduce2FirstCards;
+      case "atBehind":
+        return Caract.atBehind;
+      case "goback2":
+        return Caract.goback2;
+      case "tpBehind":
+        return Caract.tpBehind;
+      case "tpBehindHero":
+        return Caract.tpBehindHero;
+      case "tpCompagnon":
+        return Caract.tpCompagnon;
+      case "replay":
+        return Caract.replay;
       default:
         return Caract.pvHero;
     }
@@ -516,6 +661,16 @@ class WavenCaract {
         return '+$number% de PV à votre héros';
       case Caract.atHero:
         return '+$number% d\'AT à votre héros';
+      case Caract.atAdj:
+        return 'Inflige $number% de l\'AT de votre héros aux adversaires adjacents';
+      case Caract.addATUntilEnd:
+        return '+$number% d\'AT à votre héros jusqu\'à la find du combat';
+      case Caract.arHero:
+        return '+$number AR à votre héros';
+      case Caract.doubleARHero:
+        return 'Double le Gain d\'AR de votre héros';
+      case Caract.arHeroAndCompagnonOnTP:
+        return 'Votre héros et le compagnon gagnent autant d\'AR que de dégats infligés';
       case Caract.defenseHero:
         return "+$number% à toutes vos DEFENSES";
       case Caract.esquiveHero:
@@ -532,18 +687,28 @@ class WavenCaract {
         return '+$number% de CC à votre héros';
       case Caract.ccMagic:
         return '+$number% de CC MAGIQUES';
+      case Caract.degatCCHero:
+        return "+$number% de DEGATS CC à votre héros";
       case Caract.degatCCMagic:
         return "+$number% de DEGATS CC MAGIQUES";
       case Caract.dropKama:
         return '+$number% aux GAINS DE KAMAS';
       case Caract.dropBrassard:
         return "+$number% Loot Brassards";
+      case Caract.dropSort:
+        return "+$number% Loot Sorts";
       case Caract.dropAll:
         return "+$number% Gains Loot";
       case Caract.aura:
         return '+$number% à toutes vos AURAS';
       case Caract.heal:
         return "+$number% à vos SOINS";
+      case Caract.healAT:
+        return "Soigne votre héros de son AT";
+      case Caract.shield:
+        return "Confère BOUCLIER à votre héros";
+      case Caract.shieldAll:
+        return "Confère BOUCLIER à tous vos personnages";
       case Caract.collision:
         return "+$number% à toutes vos COLLISIONS";
       case Caract.collisionPA:
@@ -553,7 +718,7 @@ class WavenCaract {
       case Caract.pvCompagnon:
         return "+$number% de PV à vos compagnons";
       case Caract.atCompagnon:
-        return "+$number% de PV à vos compagnons";
+        return "+$number% d'\AT à vos compagnons";
       case Caract.drainCompagnon:
         return "+$number% de DRAIN à vos compagnons";
       case Caract.addDrainCompagnon:
@@ -563,7 +728,7 @@ class WavenCaract {
       case Caract.degatCCCompagnon:
         return "+$number% de DEGATS CC à vos compagnons";
       case Caract.canFirstSummonTwice:
-        return "Quand un de vos compagnons meurt il est REINVOCABLE";
+        return "Votre premier compagnon invoqué est REINVOCABLE";
       case Caract.attackRebondCompagnon:
         return "Quand un de vos compagnons attaque : il déclenche REBOND";
       case Caract.attackGreleCompagnon:
@@ -614,16 +779,24 @@ class WavenCaract {
         return "+$number% à toutes vos MAGIES";
       case Caract.magicEau:
         return '+$number% MAGIE Eau';
+      case Caract.mouille:
+        return "Applique MOUILLE";
+      case Caract.mouilleAutour:
+        return "Applique MOUILLE aux adversaires autour de votre héros";
       case Caract.ftMouille:
         return "Applique MOUILLE à 2 adversaires aléatoires";
       case Caract.addMouille:
         return "Applique MOUILLE à un adversaire supplémentaire";
+      case Caract.grele:
+        return "Déclenche GRELE";
+      case Caract.grele2Times:
+        return "Déclenche GRELE une seconde fois";
       case Caract.magicGrele:
         return "+$number% à toutes vos GRELES";
       case Caract.p20cardEau:
-        return "Quand vous jouez un sort EAU : +20% de réduire de 1PA le cout des sorts de votre main";
+        return "Quand vous jouez un sort EAU : +20% de chance de réduire de 1PA le cout des sorts de votre main";
       case Caract.p5cardEau:
-        return "+5%de chance de réduire de -1 PA le coût des sorts de main";
+        return "+5% de chance de réduire de 1 PA le coût des sorts de main";
       case Caract.p15cardEau:
         return "Quand vous jouez un sort EAU : + 15% de chance de générer une VAGUE infligeant 20 dégats magiques sur un adversaire aléatoire";
       case Caract.ftFlot:
@@ -634,6 +807,10 @@ class WavenCaract {
         return "+5 dégats magiques à la VAGUE";
       case Caract.magicAir:
         return '+$number% MAGIE Air';
+      case Caract.evente:
+        return "Applique EVENTE";
+      case Caract.eventeAutour:
+        return "Applique EVENTE aux adversaires autour de votre héros";
       case Caract.ftEvente:
         return "Applique EVENTE à 2 adversaires aléatoires";
       case Caract.addEvent:
@@ -650,10 +827,18 @@ class WavenCaract {
         return "COUP DE GRACE avec un sort AIR : un ECLAIR s'abat sur les adversaires. il inflige 20 dégâts magiques.";
       case Caract.add5KillAir:
         return "+5 dégats magiques à la FOUDRE";
+      case Caract.rebond:
+        return "Déclenche REBOND";
+      case Caract.rebond2Times:
+        return "Déclenche REBOND une seconde fois";
       case Caract.magicRebond:
         return "+$number% à vos REBONDS";
       case Caract.magicTerre:
         return '+$number% MAGIE Terre';
+      case Caract.boueux:
+        return "Applique BOUEUX";
+      case Caract.boueuxAutour:
+        return "Applique BOUEUX aux adversaires autour de votre héros";
       case Caract.ftBoueux:
         return "Applique BOUEUX à 2 adversaires aléatoires";
       case Caract.addBoueux:
@@ -670,10 +855,18 @@ class WavenCaract {
         return "COUP DE GRACE avec un sort TERRE: Un ROCHER s'abat sur les adversaires. Elle inflige 20 dégâts magiques";
       case Caract.add5KillTerre:
         return "+5 dégats magiques au ROCHER";
+      case Caract.tourbe:
+        return "Déclenche TOURBE";
+      case Caract.tourbe2Times:
+        return "Déclenche TOURBE une seconde fois";
       case Caract.magicTourbe:
         return "+$number% à vos TOURBES";
       case Caract.magicFeu:
         return '+$number% MAGIE Feu';
+      case Caract.huile:
+        return "Applique HUILE";
+      case Caract.huileAutour:
+        return "Applique HUILE aux adversaires autour de votre héros";
       case Caract.ftHuile:
         return "Applique HUILE à 2 adversaires aléatoires";
       case Caract.addHuile:
@@ -690,6 +883,10 @@ class WavenCaract {
         return "COUP DE GRACE avec un sort FEU: Une BOULE DE FEU s'abat sur les adversaires. Elle inflige 20 dégâts magiques";
       case Caract.add5KillFeu:
         return "+5 dégats magiques à la BOULE DE FEU";
+      case Caract.explo:
+        return "Déclenche EXPLOSION";
+      case Caract.explo2Times:
+        return "Déclenche EXPLOSION une seconde fois";
       case Caract.magicExplo:
         return "+$number% à vos EXPLOSIONS";
       case Caract.g1510ATHero:
@@ -706,8 +903,12 @@ class WavenCaract {
         return "Piochez 2 sorts";
       case Caract.add1card:
         return "Piochez 1 sort supplémentaire";
+      case Caract.astral:
+        return "Applique ASTRAL";
       case Caract.ftAstral:
         return "Applique ASTRAL à 1 adversaire aléatoire";
+      case Caract.cibleAstral:
+        return "Applique ASTRAL à la cible";
       case Caract.addAstral:
         return "Applique ASTRAL à un adversaire supplémentaire";
       case Caract.g15ftReduceCards:
@@ -729,13 +930,13 @@ class WavenCaract {
       case Caract.ftAddRagan:
         return "Ajoute le sort RAGAN à votre main";
       case Caract.ftp10MagicTerreBoueux:
-        return "+10% de MAGIES TERRE à votre héros pour le tour par adversaires BOUEUX";
+        return "+10% de MAGIE TERRE à votre héros pour le tour par adversaires BOUEUX";
       case Caract.ftp10MagicFeuHuile:
-        return "+10% de MAGIES FEU à votre héros pour le tour par adversaires HUILE";
+        return "+10% de MAGIE FEU à votre héros pour le tour par adversaires HUILE";
       case Caract.ftp10MagicEauMouille:
         return "+10% de MAGIE EAU à votre héros pour le tour par adversaire Mouillé.";
       case Caract.ftp10MagicAirEvent:
-        return "+10% de MAGIES AIR à votre héros pour le tour par adversaires EVENTE";
+        return "+10% de MAGIE AIR à votre héros pour le tour par adversaires EVENTE";
       case Caract.nextTShieldTo25AT:
         return "Vos personnages avec BOUCLIER infligent 25% de leur AT aux adversaires adjacents";
       case Caract.nextTShieldAdd25AT:
@@ -747,7 +948,7 @@ class WavenCaract {
       case Caract.p50Ouragan:
         return "+50% à tous vos ouragans";
       case Caract.eboulement:
-        return "EBOULEMENT : Inflige des degats magiques autour de votre héros";
+        return "EBOULEMENT : Inflige des dégats magiques autour de votre héros";
       case Caract.eboulementAdd:
         return "Si 3 adversaires touchés : +18 AR à votre héros";
       case Caract.p50Eboulement:
@@ -759,23 +960,47 @@ class WavenCaract {
       case Caract.p50Meteore:
         return "+50% à toutes vos METEORES";
       case Caract.foudre:
-        return "FOUDRE : Inflige des degats magiques autour de votre héros";
+        return "FOUDRE : Inflige des dégats magiques autour de votre héros";
       case Caract.foudreAdd:
         return "Si 3 adversaires touchés : Inflige 30% de l'AT de votre héros à tous les adversaires";
       case Caract.p50Foudre:
         return "+50% à toutes vos FOUDRES";
       case Caract.avalanche:
-        return "AVALANCHE : Inflige 15 dégats magiques autour de votre héros";
+        return "AVALANCHE : Inflige des dégats magiques autour de votre héros";
       case Caract.avalancheAdd:
-        return "Si 3 ennemis touchés : Piochez 1 sort dont le coût est réduit de 1 PA";
+        return "Si 3 ennemis touchés : Piochez 1 sort. Il coûte -1PA";
       case Caract.p50Avalanche:
         return "+50% à toutes vos AVALANCHES";
       case Caract.geyser:
-        return "GEYSER : Inflige des degats magiques autour de votre héros";
+        return "GEYSER : Inflige des dégats magiques autour de votre héros";
       case Caract.geyserAdd:
         return "Si 3 adversaires touchés : VOL DE VIE";
       case Caract.p50Geyser:
         return "+50% à tous vos GEYSERS";
+      case Caract.repousse2:
+        return "REPOUSSE de 2 cases";
+      case Caract.repousse2Adj:
+        return "REPOUSSE de 2 cases les adversaires adjacents à votre héros";
+      case Caract.repousse2Add:
+        return "REPOUSSE de 2 cases supplémentaires";
+      case Caract.atBehind:
+        return "Inflige $number% de l'AT de votre héros derrière la cible";
+      case Caract.goback2:
+        return "Votre héros recule de 2 cases";
+      case Caract.tpBehind:
+        return "Votre héros se téléporte dans le dos de la cible";
+      case Caract.tpBehindHero:
+        return "La cible se téléporte dans le dos de votre héros";
+      case Caract.tpCompagnon:
+        return "Echange la position de votre héros avec celle du compagnon allié le plus proche";
+      case Caract.reduceLastCard:
+        return "-1PA au coût du prochain sort joué ce tour";
+      case Caract.reduce2NextCards:
+        return "-1PA supplémentaire au coût du prochain sort joué ce tour";
+      case Caract.reduce2FirstCards:
+        return "-1PA au coût des 2 premiers sorts de votre main";
+      case Caract.replay:
+        return "Votre héros rejoue son tour";
       default:
         return "";
     }
@@ -788,6 +1013,8 @@ class WavenCaract {
       case Caract.deathCompagnon5PVHero:
         return CaractType.pv;
       case Caract.atHero:
+      case Caract.atAdj:
+      case Caract.addATUntilEnd:
       case Caract.atCompagnon:
       case Caract.summon25ATHero:
       case Caract.summon25AT:
@@ -797,6 +1024,7 @@ class WavenCaract {
       case Caract.ft5pvHeroToAR:
       case Caract.nextTShieldTo25AT:
       case Caract.nextTShieldAdd25AT:
+      case Caract.atBehind:
         return CaractType.at;
       case Caract.defenseHero:
         return CaractType.defense;
@@ -815,34 +1043,50 @@ class WavenCaract {
       case Caract.ccHero:
       case Caract.ccCompagnon:
         return CaractType.cc;
+      case Caract.degatCCHero:
       case Caract.degatCCMagic:
       case Caract.degatCCCompagnon:
         return CaractType.degatsCC;
       case Caract.dropKama:
       case Caract.dropBrassard:
+      case Caract.dropSort:
       case Caract.dropAll:
         return CaractType.drop;
       case Caract.aura:
       case Caract.g12ft1aura:
         return CaractType.aura;
       case Caract.heal:
+      case Caract.healAT:
         return CaractType.soin;
       case Caract.collision:
       case Caract.collisionPA:
       case Caract.collisionAddPA:
+      case Caract.repousse2:
+      case Caract.repousse2Adj:
+      case Caract.repousse2Add:
         return CaractType.collision;
+      case Caract.rebond:
+      case Caract.rebond2Times:
       case Caract.attackRebondCompagnon:
       case Caract.magicRebond:
         return CaractType.rebond;
       case Caract.attackGreleCompagnon:
+      case Caract.grele:
+      case Caract.grele2Times:
       case Caract.magicGrele:
         return CaractType.grele;
+      case Caract.tourbe:
+      case Caract.tourbe2Times:
       case Caract.attackTourbeCompagnon:
       case Caract.magicTourbe:
         return CaractType.tourbe;
+      case Caract.explo:
+      case Caract.explo2Times:
       case Caract.attackExploCompagnon:
       case Caract.magicExplo:
         return CaractType.explo;
+      case Caract.arHero:
+      case Caract.doubleARHero:
       case Caract.summonfirstp50PvToAR:
       case Caract.summonATHeroToAR:
       case Caract.deathATCompagnonToARHero:
@@ -851,6 +1095,8 @@ class WavenCaract {
       case Caract.summonDephasage:
         return CaractType.dephasage;
       case Caract.summonShieldHero:
+      case Caract.shield:
+      case Caract.shieldAll:
       case Caract.summonShieldCompagnon:
         return CaractType.bouclier;
       case Caract.summonPA:
@@ -871,12 +1117,16 @@ class WavenCaract {
         return CaractType.draw;
       case Caract.deathCompagnonReduceCard:
       case Caract.g15ftReduceCards:
+      case Caract.reduceLastCard:
+      case Caract.reduce2NextCards:
+      case Caract.reduce2FirstCards:
         return CaractType.reductCost;
       case Caract.magicAll:
         return CaractType.allMagic;
       case Caract.magicEau:
       case Caract.ftp10MagicEauMouille:
         return CaractType.magicEau;
+      case Caract.mouille:
       case Caract.ftMouille:
       case Caract.addMouille:
         return CaractType.mouille;
@@ -905,6 +1155,7 @@ class WavenCaract {
       case Caract.magicAir:
       case Caract.ftp10MagicAirEvent:
         return CaractType.magicAir;
+      case Caract.evente:
       case Caract.ftEvente:
       case Caract.addEvent:
         return CaractType.evente;
@@ -915,6 +1166,7 @@ class WavenCaract {
       case Caract.magicTerre:
       case Caract.ftp10MagicTerreBoueux:
         return CaractType.magicTerre;
+      case Caract.boueux:
       case Caract.ftBoueux:
       case Caract.addBoueux:
         return CaractType.boueux;
@@ -925,6 +1177,7 @@ class WavenCaract {
       case Caract.magicFeu:
       case Caract.ftp10MagicFeuHuile:
         return CaractType.magicFeu;
+      case Caract.huile:
       case Caract.ftHuile:
       case Caract.addHuile:
         return CaractType.huile;
@@ -932,7 +1185,9 @@ class WavenCaract {
       case Caract.p5cardFeu:
       case Caract.p15cardFeu:
         return CaractType.cardFeu;
+      case Caract.astral:
       case Caract.ftAstral:
+      case Caract.cibleAstral:
       case Caract.addAstral:
         return CaractType.astral;
       case Caract.ouragan:
@@ -948,6 +1203,11 @@ class WavenCaract {
       case Caract.geyser:
       case Caract.p50Geyser:
         return CaractType.affinite;
+      case Caract.goback2:
+      case Caract.tpBehind:
+      case Caract.tpBehindHero:
+      case Caract.tpCompagnon:
+        return CaractType.mouvement;
       default:
         return null;
     }
@@ -1037,6 +1297,8 @@ class WavenCaract {
         return "Astral";
       case CaractType.affinite:
         return "Affinité";
+      case CaractType.mouvement:
+        return "Mouvement";
       default:
         return "";
     }
@@ -1048,8 +1310,23 @@ class WavenCaract {
     if (caract.grimoire != null) {
       text += "GRIMOIRE (${caract.grimoire}) : ";
     }
-    if (caract.debutTour) {
+    if (caract.startFight) {
+      text += "DEBUT DU COMBAT : ";
+    }
+    if (caract.firstTour) {
       text += "PREMIER TOUR : ";
+    }
+    if (caract.debutTour) {
+      text += "DEBUT DU TOUR : ";
+    }
+    if (caract.finTour) {
+      text += "FIN DU TOUR : ";
+    }
+    if (caract.attaque) {
+      text += "ATTAQUE : ";
+    }
+    if (caract.critique) {
+      text += "CRITIQUE : ";
     }
     if (caract.number != null) {
       return text +

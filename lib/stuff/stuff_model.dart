@@ -2,7 +2,7 @@ import 'package:waven_compagnon/stuff/caract_model.dart';
 
 enum TypeStuff { anneau, brassard }
 
-enum Rarity { common, rare, epic, legendary }
+enum Rarity { common, rare, krosmique, infinite }
 
 class WavenStuff {
   TypeStuff _type = TypeStuff.anneau;
@@ -83,10 +83,10 @@ class WavenStuff {
         return Rarity.common;
       case "rare":
         return Rarity.rare;
-      case "epic":
-        return Rarity.epic;
-      case "legendary":
-        return Rarity.legendary;
+      case "krosmique":
+        return Rarity.krosmique;
+      case "infinite":
+        return Rarity.infinite;
       default:
         return Rarity.common;
     }
@@ -98,10 +98,10 @@ class WavenStuff {
         return "Commun";
       case Rarity.rare:
         return "Rare";
-      case Rarity.epic:
-        return "Epique";
-      case Rarity.legendary:
-        return "Légendaire";
+      case Rarity.krosmique:
+        return "Krosmique";
+      case Rarity.infinite:
+        return "Infinite";
       default:
         return "Anneau";
     }
