@@ -13,11 +13,35 @@ class HeroShow extends StatelessWidget {
         Center(
             child: Image.asset(
           hero.cover ?? '',
-          height: MediaQuery.of(context).size.height / 3,
+          height: MediaQuery.of(context).size.height / 4,
         )),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Padding(
+                padding: const EdgeInsets.only(bottom: 4),
+                child: Column(children: [
+                  Center(
+                      child: Text(
+                    'Point de vie de base',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  )),
+                  Row(children: [
+                    Icon(
+                      Icons.heart_broken_sharp,
+                      color: Theme.of(context).primaryColor,
+                      size: 24.0,
+                      semanticLabel: 'LifeIcon',
+                    ),
+                    Center(
+                        child: Text(
+                      hero.life.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ))
+                  ])
+                ])),
             if (hero.difficulty is Difficulty)
               Padding(
                   padding: const EdgeInsets.only(bottom: 4),
@@ -70,7 +94,31 @@ class HeroShow extends StatelessWidget {
                         ),
                       ]),
                     ],
-                  ))
+                  )),
+            Padding(
+                padding: const EdgeInsets.only(bottom: 4),
+                child: Column(children: [
+                  Center(
+                      child: Text(
+                    'Attaque de base',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  )),
+                  Row(children: [
+                    Icon(
+                      Icons.heart_broken_outlined,
+                      color: Theme.of(context).primaryColor,
+                      size: 24.0,
+                      semanticLabel: 'LifeIcon',
+                    ),
+                    Center(
+                        child: Text(
+                      hero.atk.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ))
+                  ])
+                ])),
           ],
         ),
         Container(
@@ -80,7 +128,27 @@ class HeroShow extends StatelessWidget {
             ),
             child: const Padding(
                 padding: EdgeInsets.only(top: 4, bottom: 4),
+                child: Text('Passif', textAlign: TextAlign.center))),
+        Padding(
+            padding: const EdgeInsets.only(top: 4, bottom: 4),
+            child: Text(
+              hero.passif ?? '',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            )),
+        Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+            child: const Padding(
+                padding: EdgeInsets.only(top: 4, bottom: 4),
                 child: Text('Classe', textAlign: TextAlign.center))),
+        Center(
+            child: Image.asset(
+          WavenHero.getIconByClass(hero.classHero),
+          height: 100,
+        )),
         Padding(
             padding: const EdgeInsets.only(top: 4, bottom: 4),
             child: Text(

@@ -23,6 +23,21 @@ class StuffShow extends StatelessWidget {
             ),
             child: const Padding(
                 padding: EdgeInsets.only(top: 4, bottom: 4),
+                child: Text('Stuff', textAlign: TextAlign.center))),
+        Padding(
+            padding: const EdgeInsets.only(top: 4, bottom: 4),
+            child: Text(
+              WavenStuff.getStringOfClass(stuff.type),
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            )),
+        Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+            child: const Padding(
+                padding: EdgeInsets.only(top: 4, bottom: 4),
                 child: Text('Rareté', textAlign: TextAlign.center))),
         Padding(
             padding: const EdgeInsets.only(top: 4, bottom: 4),

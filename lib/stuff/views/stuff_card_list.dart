@@ -74,12 +74,12 @@ class _StuffCardListState extends State<StuffCardList> {
               filteredStuffs = widget.stuffs;
             } else {
               filteredStuffs = widget.stuffs.where((stuff) {
-                bool findCaract = false;
+                bool findCaract = true;
                 for (var element in list) {
                   var result = stuff.caracts.where((caract) =>
                       WavenCaract.getTypeOfCaract(caract.caract) == element);
-                  if (result.isNotEmpty) {
-                    findCaract = true;
+                  if (result.isEmpty) {
+                    findCaract = false;
                   }
                 }
                 return findCaract;

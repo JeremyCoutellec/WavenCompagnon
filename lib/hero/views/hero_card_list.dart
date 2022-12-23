@@ -24,6 +24,7 @@ class _HeroCardListState extends State<HeroCardList> {
     void openFilterDialog() async {
       await FilterListDialog.display<ClassHero>(
         context,
+        enableOnlySingleSelection: true,
         hideSearchField: true,
         hideCloseIcon: true,
         hideSelectedTextCount: true,
@@ -33,7 +34,7 @@ class _HeroCardListState extends State<HeroCardList> {
         allButtonText: 'Tous',
         listData: ClassHero.values,
         selectedListData: classHeroesSelected,
-        controlButtons: [],
+        controlButtons: [ControlButtonType.Reset],
         choiceChipBuilder: (context, item, isSelected) {
           String? label = WavenHero.getStringOfClass(item);
           Color color = Colors.grey[200]!;
@@ -67,19 +68,18 @@ class _HeroCardListState extends State<HeroCardList> {
         },
         onApplyButtonClick: (list) {
           setState(() {
-            print(list);
             classHeroesSelected = List.from(list!);
             if (classHeroesSelected.isEmpty) {
               filteredHeros = widget.heros;
             } else {
-              filteredHeros = widget.heros.where((hero) {
-                bool findRoles = true;
+              filteredHeros = widget.heros.where((stuff) {
+                bool findClass = true;
                 for (var element in list) {
-                  if (hero.classHero == element) {
-                    findRoles = false;
+                  if (stuff.classHero != element) {
+                    findClass = false;
                   }
                 }
-                return findRoles;
+                return findClass;
               }).toList();
             }
           });
