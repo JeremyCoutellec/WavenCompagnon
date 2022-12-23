@@ -32,6 +32,7 @@ flutter:
     - images/heroes/sram/
     - images/heroes/xelor/
     - images/heroes/sacrieur/
+    - images/stuffs/
     - images/utils/
     - assets/mockHeroes.json
     - assets/mockCompagnons.json
