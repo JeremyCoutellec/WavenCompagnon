@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
+import 'package:waven_compagnon/compagnon/compagnon_controller.dart';
 import 'package:waven_compagnon/stuff/stuff_controller.dart';
 
 import 'core/views/nav_bar.dart';
@@ -23,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     super.initState();
     _tabController = TabController(
       initialIndex: 0,
-      length: 2,
+      length: 3,
       vsync: this,
     );
   }
@@ -40,8 +41,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         appBar: NavBar(context: context),
         bottomNavigationBar: MotionTabBar(
           initialSelectedTab: "Stuff",
-          labels: const ["Stuff", "Heros"],
-          icons: const [Icons.handyman_outlined, Icons.people_alt_outlined],
+          labels: const ["Stuff", "Compagnons", "Heros"],
+          icons: const [
+            Icons.handyman_outlined,
+            Icons.all_inclusive_rounded,
+            Icons.people_alt_outlined
+          ],
           tabSize: 50,
           tabBarHeight: 55,
           textStyle: TextStyle(
@@ -68,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           // ignore: prefer_const_literals_to_create_immutables
           children: const <Widget>[
             WavenStuffController(),
+            WavenCompagnonController(),
             WavenHeroController()
           ],
         ));

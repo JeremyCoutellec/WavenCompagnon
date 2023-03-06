@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:waven_compagnon/stuff/caract_model.dart';
+import 'package:waven_compagnon/caract/caract_model.dart';
 import '../stuff_model.dart';
 
 class StuffShow extends StatelessWidget {

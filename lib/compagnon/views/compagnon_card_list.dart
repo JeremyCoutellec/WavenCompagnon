@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:filter_list/filter_list.dart';
 import 'package:waven_compagnon/caract/caract_model.dart';
 
-import '../stuff_model.dart';
-import 'stuff_show.dart';
+import '../compagnon_model.dart';
+import 'compagnon_show.dart';
 
-class StuffCardList extends StatefulWidget {
-  final List<WavenStuff> stuffs;
+class CompagnonCardList extends StatefulWidget {
+  final List<WavenCompagnon> compagnons;
 
-  StuffCardList({super.key, required this.stuffs});
+  CompagnonCardList({super.key, required this.compagnons});
 
   @override
-  State<StuffCardList> createState() => _StuffCardListState();
+  State<CompagnonCardList> createState() => _CompagnonCardListState();
 }
 
-class _StuffCardListState extends State<StuffCardList> {
-  List<CaractType> typeStuffSelected = [];
-  List<WavenStuff> filteredStuffs = [];
+class _CompagnonCardListState extends State<CompagnonCardList> {
+  List<CaractType> typeCompagnonSelected = [];
+  List<WavenCompagnon> filteredCompagnons = [];
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _StuffCardListState extends State<StuffCardList> {
 
     void openFilterDialog() async {
       var caractTypes = WavenCaract.getSortedTypes();
-      await FilterListDialog.display<CaractType||TypeStuff>(
+      await FilterListDialog.display<CaractType>(
         context,
         hideSearchField: true,
         hideCloseIcon: true,
@@ -33,8 +33,8 @@ class _StuffCardListState extends State<StuffCardList> {
         applyButtonText: 'Filtrer',
         resetButtonText: 'Aucun',
         allButtonText: 'Tous',
-        listData: [...TypeStuff.values,...caractTypes],
-        selectedListData: typeStuffSelected,
+        listData: caractTypes,
+        selectedListData: typeCompagnonSelected,
         controlButtons: [],
         choiceChipBuilder: (context, item, isSelected) {
           String? label = WavenCaract.getStringOfType(item);
@@ -69,18 +69,16 @@ class _StuffCardListState extends State<StuffCardList> {
         },
         onApplyButtonClick: (list) {
           setState(() {
-            typeStuffSelected = List.from(list!);
-            if (typeStuffSelected.isEmpty) {
-              filteredStuffs = widget.stuffs;
+            typeCompagnonSelected = List.from(list!);
+            if (typeCompagnonSelected.isEmpty) {
+              filteredCompagnons = widget.compagnons;
             } else {
-              filteredStuffs = widget.stuffs.where((stuff) {
+              filteredCompagnons = widget.compagnons.where((compagnon) {
                 bool findCaract = true;
                 for (var element in list) {
-                  var result = stuff.caracts.where((caract) =>
+                  var result = compagnon.caracts.where((caract) =>
                       WavenCaract.getTypeOfCaract(caract.caract) == element);
-                  var resultAdd = stuff.addCaracts.where((caract) =>
-                      WavenCaract.getTypeOfCaract(caract.caract) == element);
-                  if (result.isEmpty && resultAdd.isEmpty) {
+                  if (result.isEmpty) {
                     findCaract = false;
                   }
                 }
@@ -93,15 +91,16 @@ class _StuffCardListState extends State<StuffCardList> {
       );
     }
 
-    filteredStuffs = typeStuffSelected.isEmpty ? widget.stuffs : filteredStuffs;
+    filteredCompagnons =
+        typeCompagnonSelected.isEmpty ? widget.compagnons : filteredCompagnons;
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: openFilterDialog,
           child: const Icon(Icons.filter_list),
         ),
-        body: (filteredStuffs.isEmpty)
+        body: (filteredCompagnons.isEmpty)
             ? Center(
-                child: Text('Aucun stuff ne correspond à ces filtres',
+                child: Text('Aucun compagnon ne correspond à ces filtres',
                     style: TextStyle(color: Theme.of(context).primaryColor)))
             : GridView.builder(
                 padding: const EdgeInsets.only(left: 20, right: 20),
@@ -113,9 +112,10 @@ class _StuffCardListState extends State<StuffCardList> {
                         context: context,
                         builder: (BuildContext context) {
                           return SimpleDialog(
-                              title: Text(filteredStuffs[index].name),
+                              title: Text(filteredCompagnons[index].name),
                               children: [
-                                StuffShow(stuff: filteredStuffs[index])
+                                CompagnonShow(
+                                    compagnon: filteredCompagnons[index])
                               ]);
                         }),
                     child: Card(
@@ -124,15 +124,15 @@ class _StuffCardListState extends State<StuffCardList> {
                           SizedBox(
                             height: 77.0,
                             child: Ink.image(
-                              image:
-                                  AssetImage(filteredStuffs[index].icon ?? ''),
+                              image: AssetImage(
+                                  filteredCompagnons[index].icon ?? ''),
                               fit: BoxFit.fitHeight,
                             ),
                           ),
                           Container(
                             padding: const EdgeInsets.all(8.0),
                             alignment: Alignment.centerLeft,
-                            child: Text(filteredStuffs[index].name,
+                            child: Text(filteredCompagnons[index].name,
                                 style: TextStyle(
                                     color: Theme.of(context)
                                         .colorScheme
@@ -142,6 +142,6 @@ class _StuffCardListState extends State<StuffCardList> {
                                 textAlign: TextAlign.center),
                           ),
                         ]))),
-                itemCount: filteredStuffs.length));
+                itemCount: filteredCompagnons.length));
   }
 }
